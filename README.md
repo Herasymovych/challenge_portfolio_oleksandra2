@@ -9,3 +9,45 @@ I have already successfully completed two courses of manual testing, and still s
 _Wish you all good luck!_
 
 #### Oleksandra
+
+# *TASK 2: selectors*
+#### Scouts panel
+1) //*[text()="Scouts Panel"]
+2) //*[contains(@class, "MuiTypography-h5")]
+3) //div//h5
+
+#### Login
+1) //input[@id='login']
+2) //input[@type="text"]
+3) //input[@name='login']
+4) //*[@id="login"]
+
+#### Password
+1) //input[@type="password"]
+2) //input[@id='password']
+3) //input[@name='password']
+4) //*[@id="password"]
+5) //*[@id='password' or @name='password']
+
+#### Remind Password
+1) //*[@id="__next"]/form/div/div[1]/a
+2) //*[text()="Remind password"]
+3) //child::div/a
+
+#### Button English
+1) //*[@role='button' and text()="English"]
+2) //*[contains(@class, "MuiSelect-root")]
+3) ///*[text()="English"]
+4) //*[@aria-haspopup="listbox"]
+5) //*[contains(@class, 'MuiSelect-root') and contains(@class, 'MuiSelect-select')]
+
+#### Button Polish
+1) //*[text()="Polski"]
+2) //*[contains(@class, "MuiSelect-root")]
+3) //*[@role='button' and text()="Polski"]
+
+#### Sign up
+1) //*[contains(@class, "MuiButton-label")]
+2) //*[text()="Sign in"]
+3) //span/text()
+
