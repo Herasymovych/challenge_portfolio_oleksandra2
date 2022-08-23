@@ -1,9 +1,10 @@
+import time
+
 from pages.base_page import BasePage
 
 
-class Dashboard(BasePage):
-    players_count_text = "//*[contains(@class, 'MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded')]/div[1]"
-    players_count_value = "//*[contains(@class, 'MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded')]/div[2]/b"
+class DashboardPage(BasePage):
+    players_count_text = "//*[text()=\"Players count\"]"
     logo_scouts_panel = "//*[@title=\"Logo Scouts Panel\"]"
     button_main_page = "//*[text()=\"Main page\"]"
     button_players = "//*[text()=\"Players\"]"
@@ -12,5 +13,11 @@ class Dashboard(BasePage):
     text_shortcuts = "//*[text()=\"Shortcuts\"]"
     link_dev_team_contact = "//*[text()=\"Dev team contact\"]"
     text_last_created_players = "//*[text()=\"Last created player\"]"
+    button_polski = "//*[text()=\"Polski\"]"
+    expected_title = "Scouts panel"
+    dashboard_url = "https://scouts-test.futbolkolektyw.pl/"
 
-    pass
+    def get_title(self) -> str:
+        time.sleep(4)
+        return self.get_page_title(self.dashboard_url)
+
