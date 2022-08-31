@@ -12,30 +12,32 @@ def print_nice_words() -> None:
     print("WELL DONE!!!!!!!!!")
 
 
-class Test(unittest.TestCase):
+class LoginPageTest(unittest.TestCase):
 
     @classmethod
-    def setUp(self):
+    def setUp(self) -> None:
         os.chmod(DRIVER_PATH, 755)
         self.driver = webdriver.Chrome(executable_path=DRIVER_PATH)
         self.driver.get(LoginPage.login_url)
         self.driver.implicitly_wait(IMPLICITLY_WAIT)
 
-    def test_correct_title(self) -> None:
+    def test_logout(self) -> None:
         login_page = LoginPage(self.driver)
         login_page.login(USER_LOGIN, USER_PASSWORD)
-        dashboard_page = DashboardPage(self.driver)
-        dashboard_page_title = dashboard_page.get_title()
 
-        assert dashboard_page_title == dashboard_page.expected_title
+        login_page.wait_for_element_be_clickable(DashboardPage.button_polski)
+
+        dashboard_page = DashboardPage(self.driver)
+        dashboard_page.click_sign_out()
+
+        assert self.driver.current_url == login_page.login_url
+
 
     @classmethod
     def tearDown(self) -> None:
         self.driver.quit()
         print_nice_words()
 
-    # Element of the first task: Try to search the Internet yourself how to get rid of the error:
-    # "DeprecationWarning: executable_path has been deprecated, please pass in a Service object"
 
 
 

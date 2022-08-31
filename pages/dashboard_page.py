@@ -16,8 +16,20 @@ class DashboardPage(BasePage):
     button_polski = "//*[text()=\"Polski\"]"
     expected_title = "Scouts panel"
     dashboard_url = "https://scouts-test.futbolkolektyw.pl/"
+    button_sign_out = "//*[text()=\"Sign out\"]"
+
 
     def get_title(self) -> str:
-        time.sleep(4)
+        self.wait_for_element_be_clickable(self.button_main_page)
         return self.get_page_title(self.dashboard_url)
+
+    def click_add_player(self) -> None:
+        self.wait_for_element_be_clickable(self.link_add_player)
+        self.click_on_the_element(self.link_add_player)
+
+    def click_sign_out(self) -> None:
+        self.wait_for_element_be_clickable(self.button_sign_out)
+        self.click_on_the_element(self.button_sign_out)
+
+
 
