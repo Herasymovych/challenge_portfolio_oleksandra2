@@ -13,7 +13,7 @@ def print_nice_words() -> None:
     print("WELL DONE!!!!!!!!!")
 
 
-class Test(unittest.TestCase):
+class AddPlayerTest(unittest.TestCase):
 
     @classmethod
     def setUp(self):

@@ -12,7 +12,7 @@ def print_nice_words() -> None:
     print("WELL DONE!!!!!!!!!")
 
 
-class Test(unittest.TestCase):
+class DashboardTest(unittest.TestCase):
 
     @classmethod
     def setUp(self):
